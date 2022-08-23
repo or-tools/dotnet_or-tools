@@ -21,7 +21,7 @@
     <PackageTags>sample</PackageTags>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageOutputPath>../../samples</PackageOutputPath>
+    <PackageOutputPath>package</PackageOutputPath>
 
     <!-- Signing -->
     <SignAssembly>false</SignAssembly>
