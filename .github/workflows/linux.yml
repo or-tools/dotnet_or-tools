@@ -1,0 +1,16 @@
+name: Linux
+
+on: [push, pull_request]
+
+jobs:
+  # Building using the github runner environement directly.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check dotnet
+      run: dotnet --info
+    - name: Build
+      run: dotnet build -c Release
+    - name: Test
+      run: dotnet run -c Release
