@@ -14,3 +14,5 @@ jobs:
       run: dotnet build -c Release
     - name: Test
       run: dotnet run -c Release
+    - name: Pack
+      run: dotnet pack -c Release
