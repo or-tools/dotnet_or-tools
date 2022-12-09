@@ -1,0 +1,13 @@
+# Project Files unneeded by docker
+.dockerignore
+
+.git
+.gitignore
+.github
+
+Dockerfile
+README.md
+LICENSE
+
+target/
+*.swp
