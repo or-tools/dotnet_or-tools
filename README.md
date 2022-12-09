@@ -13,12 +13,18 @@
 [windows_link]: https://github.com/or-tools/dotnet_or-tools/actions/workflows/windows.yml
 
 # Introduction
-Template to consume .Net OR-Tools package
+Sample project explaining how to use Google OR-Tools in a .Net project.
 
 # Build
 
 ```sh
 dotnet build -c Release
+```
+
+# Run
+
+```sh
+dotnet run -c Release
 ```
 
 # Package
@@ -27,8 +33,10 @@ dotnet build -c Release
 dotnet pack -c Release
 ```
 
-# Run
+## Testing
+You can test using the provided Dockerfile
 
 ```sh
-dotnet run -c Release
+docker build --tag=dotnet_or-tools .
 ```
+
