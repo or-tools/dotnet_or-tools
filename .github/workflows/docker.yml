@@ -17,5 +17,7 @@ jobs:
       run: docker build --target devel .
     - name: docker build build
       run: docker build --target build .
-    - name: docker build test
-      run: docker build --target test .
+    - name: docker build run
+      run: docker build --target run .
+    - name: docker build pack
+      run: docker build --target pack .
