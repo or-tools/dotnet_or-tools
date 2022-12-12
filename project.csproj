@@ -9,14 +9,14 @@
     <RollForward>LatestMajor</RollForward>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <AssemblyName>Google.OrTools.BasicExample</AssemblyName>
-    <Version>9.4.1874</Version>
+    <Version>1.0.0</Version>
 
     <!-- Nuget Properties -->
     <Description>Simple App consuming Google.OrTools package</Description>
 
     <!-- Pack Option -->
     <IsPackable>true</IsPackable>
-    <Title>Google.OrTools.BasicExample v9.4.1874</Title>
+    <Title>Google.OrTools.BasicExample v1.0.0</Title>
     <PackageId>Google.OrTools.BasicExample</PackageId>
     <PackageTags>sample</PackageTags>
     <IncludeSymbols>true</IncludeSymbols>
