@@ -4,11 +4,10 @@ FROM ubuntu:22.04 AS env
 # Install system build dependencies
 ENV PATH=/usr/local/bin:$PATH
 RUN apt update -qq \
-&& DEBIAN_FRONTEND=noninteractive apt install -yq \
-dotnet-sdk-6.0 \
-&& dotnet --info \
+&& apt install -yq wget dotnet-sdk-6.0 \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN dotnet --info
 
 # Copy project
 FROM env AS devel
