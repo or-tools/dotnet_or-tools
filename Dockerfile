@@ -4,7 +4,7 @@ FROM ubuntu:22.04 AS env
 # Install system build dependencies
 ENV PATH=/usr/local/bin:$PATH
 RUN apt update -qq \
-&& apt install -yq wget dotnet-sdk-6.0 \
+&& apt install -yq wget dotnet6 \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN dotnet --info
