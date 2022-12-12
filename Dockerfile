@@ -6,24 +6,23 @@ ENV PATH=/usr/local/bin:$PATH
 RUN apt update -qq \
 && DEBIAN_FRONTEND=noninteractive apt install -yq \
 dotnet-sdk-6.0 \
+&& dotnet --info \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Copy project
 FROM env AS devel
-RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1001 ubuntu
-USER ubuntu
-WORKDIR /home/ubuntu
+WORKDIR /home/project
 COPY . .
 
 # Build
 FROM devel AS build
-RUN docker build -C Release
+RUN dotnet build -c Release
 
-# Run test
-FROM build AS test
-RUN docker build -C Release
+# Run
+FROM build AS run
+RUN dotnet run -c Release
 
 # Pack
 FROM build AS pack
-RUN docker pack -C Release
+RUN dotnet pack -c Release
