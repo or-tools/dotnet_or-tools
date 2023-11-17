@@ -1,0 +1,20 @@
+# ref: https://github.com/actions/runner-images
+name: amd64 Linux
+
+on: [push, pull_request, workflow_dispatch]
+
+# Building using the github runner environement directly.
+jobs:
+  native:
+    name: Linux • CMake
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check dotnet
+        run: dotnet --info
+      - name: Build
+        run: dotnet build -c Release
+      - name: Test
+        run: dotnet run -c Release
+      - name: Pack
+        run: dotnet pack -c Release

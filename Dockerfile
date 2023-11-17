@@ -1,6 +1,6 @@
 # Create a virtual environment with all tools installed
 # ref: https://hub.docker.com/_/ubuntu
-FROM ubuntu:23.04 AS env
+FROM ubuntu:23.10 AS env
 # Install system build dependencies
 ENV PATH=/usr/local/bin:$PATH
 RUN apt update -qq \
