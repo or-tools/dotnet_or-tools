@@ -6,7 +6,7 @@ on: [push, pull_request, workflow_dispatch]
 # Building using the github runner environement directly.
 jobs:
   native:
-    name: Linux • CMake
+    name: Linux • .Net
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
