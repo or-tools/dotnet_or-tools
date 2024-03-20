@@ -15,6 +15,7 @@
 // [START program]
 // [START import]
 using System;
+using Google.OrTools.Init;
 using Google.OrTools.LinearSolver;
 // [END import]
 
@@ -22,6 +23,7 @@ public class BasicExample
 {
     static void Main()
     {
+        Console.WriteLine("Google.OrTools version: " + OrToolsVersion.VersionString());
         // [START solver]
         // Create the linear solver with the GLOP backend.
         Solver solver = Solver.CreateSolver("GLOP");
