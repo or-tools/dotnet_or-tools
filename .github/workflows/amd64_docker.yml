@@ -8,22 +8,42 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  docker:
+    strategy:
+      matrix:
+        #platform: [amd64, arm64, riscv64]
+        platform: [amd64]
+        distro: [
+          almalinux,
+          archlinux,
+          debian,
+          fedora,
+          opensuse,
+          rockylinux,
+          ubuntu
+        ]
+      fail-fast: false
+    name: ${{matrix.platform}}•${{matrix.distro}}•.Net
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Check docker
         run: |
-          docker version
           docker info
           docker buildx ls
       - name: Build env image
-        run: docker build --target env .
+        run: make --directory=ci ${{matrix.platform}}_${{matrix.distro}}_env
       - name: Build devel image
-        run: docker build --target devel .
+        run: make --directory=ci ${{matrix.platform}}_${{matrix.distro}}_devel
       - name: Build project
-        run: docker build --target build .
+        run: make --directory=ci ${{matrix.platform}}_${{matrix.distro}}_build
       - name: Run project
-        run: docker build --target run --progress plain .
+        run: VERBOSE=1 make --directory=ci ${{matrix.platform}}_${{matrix.distro}}_run
       - name: Pack project
-        run: docker build --target pack .
+        run: VERBOSE=1 make --directory=ci ${{matrix.platform}}_${{matrix.distro}}_pack
+
+  amd64_docker_dotnet:
+    runs-on: ubuntu-latest
+    needs: docker
+    steps:
+      - uses: actions/checkout@v4
