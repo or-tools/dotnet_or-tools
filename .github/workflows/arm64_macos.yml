@@ -13,7 +13,7 @@ jobs:
     name: MacOS•.Net
     runs-on: macos-latest # arm64 based macos runner
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Check dotnet
         run: dotnet --info
       - name: Build
