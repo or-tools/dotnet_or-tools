@@ -13,7 +13,7 @@ jobs:
     name: MacOS•.Net
     runs-on: macos-13 # latest intel based macos runner
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Check dotnet
         run: dotnet --info
       - name: Build

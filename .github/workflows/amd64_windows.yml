@@ -13,7 +13,7 @@ jobs:
     name: Windows•.Net
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Check dotnet
         run: dotnet --info
       - name: Build
