@@ -42,6 +42,6 @@
 
   <ItemGroup>
     <Compile Include="BasicExample.cs" />
-    <PackageReference Include="Google.OrTools" Version="9.13.*" />
+    <PackageReference Include="Google.OrTools" Version="9.14.*" />
   </ItemGroup>
 </Project>
